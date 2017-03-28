@@ -9,7 +9,7 @@ module.exports = function( grunt ) {
 
 		addtextdomain: {
 			options: {
-				textdomain: 'better-plugin-recommendations',
+				textdomain: 'spp-bpr',
 			},
 			target: {
 				files: {
