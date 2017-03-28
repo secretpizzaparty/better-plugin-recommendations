@@ -12,7 +12,9 @@
  * @package         Better_Plugin_Recommendations
  */
 
-define( 'SPP_BPR_API_HOST', 'localhost:3000' );
+if ( ! defined('SPP_BPR_API_HOST') || ! SPP_BPR_API_HOST ) {
+	define( 'SPP_BPR_API_HOST', 'betterpluginrecommendations.now.sh' );
+}
 
 add_filter( 'install_plugins_tabs', 'spp_bpr_install_plugins_tabs' );
 function spp_bpr_install_plugins_tabs( $tabs ) {
