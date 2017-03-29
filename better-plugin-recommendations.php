@@ -13,7 +13,7 @@
  */
 
 if ( ! defined('SPP_BPR_API_HOST') || ! SPP_BPR_API_HOST ) {
-	define( 'SPP_BPR_API_HOST', 'betterpluginrecommendations.now.sh' );
+	define( 'SPP_BPR_API_HOST', 'better-plugin-recommendations.now.sh' );
 }
 
 add_filter( 'install_plugins_tabs', 'spp_bpr_install_plugins_tabs' );
