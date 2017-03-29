@@ -73,3 +73,6 @@ function spp_bpr_hijack_recommended_tab( $res, $action, $args ) {
 
 	return $res;
 }
+
+// WP Engine Compatibility
+remove_action( 'admin_init', 'wpe_hook_plugin_api_response' );
