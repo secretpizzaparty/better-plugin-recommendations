@@ -12,7 +12,7 @@
  * @package         Better_Plugin_Recommendations
  */
 
-if ( ! defined('SPP_BPR_API_HOST') || ! SPP_BPR_API_HOST ) {
+if ( ! defined( 'SPP_BPR_API_HOST' ) || ! SPP_BPR_API_HOST ) {
 	define( 'SPP_BPR_API_HOST', 'better-plugin-recommendations.now.sh' );
 }
 
@@ -36,12 +36,25 @@ function spp_bpr_hijack_recommended_tab( $res, $action, $args ) {
 		return $res;
 	}
 
+	$res = get_site_transient( 'spp_bpr_plugins_data' );
+	if ( ! $res || ! isset( $res->plugins ) ) {
+		$res = spp_bpr_fetch_recommended_plugins();
+		if ( isset( $res->plugins ) ) {
+			set_site_transient( 'spp_bpr_plugins_data', $res, HOUR_IN_SECONDS );
+		}
+	}
+
+	return $res;
+}
+
+
+function spp_bpr_fetch_recommended_plugins() {
 	$url = $http_url = 'http://' . SPP_BPR_API_HOST . '/api/plugin-recommendations';
 	if ( $ssl = wp_http_supports( array( 'ssl' ) ) && strpos( SPP_BPR_API_HOST, 'localhost' ) === false ) {
 		$url = set_url_scheme( $url, 'https' );
 	}
 
-	$request   = wp_remote_get( $url, array( 'timeout' => 15 ) );
+	$request = wp_remote_get( $url, array( 'timeout' => 15 ) );
 
 	if ( $ssl && is_wp_error( $request ) ) {
 		trigger_error(
@@ -57,10 +70,11 @@ function spp_bpr_hijack_recommended_tab( $res, $action, $args ) {
 			$request->get_error_message()
 		);
 	} else {
-		$res = json_decode( wp_remote_retrieve_body( $request ) );
-		$res->info = (array) $res->info; // WP wants this as an array...
-		$res->plugins = array_map( function( $plugin ) {
+		$res          = json_decode( wp_remote_retrieve_body( $request ) );
+		$res->info    = (array) $res->info; // WP wants this as an array...
+		$res->plugins = array_map( function ( $plugin ) {
 			$plugin->icons = (array) $plugin->icons; // WP wants this as an array...
+
 			return $plugin;
 		}, $res->plugins );
 		if ( ! is_object( $res ) && ! is_array( $res ) ) {
