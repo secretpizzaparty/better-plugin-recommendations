@@ -88,5 +88,15 @@ function spp_bpr_fetch_recommended_plugins() {
 	return $res;
 }
 
+function spp_bpr_change_recommendations_sentence( $translation, $text, $domain ) {
+	if ( 'These suggestions are based on the plugins you and other users have installed.' === $text ) {
+		return __( 'Handpicked by humans. These plugins were selected by people who not only use WordPress but also the plugins they are recommending', 'spp-bpr' );
+	}
+
+	return $translation;
+}
+
+add_filter( 'gettext', 'spp_bpr_change_recommendations_sentence', 10, 3 );
+
 // WP Engine Compatibility
 remove_action( 'admin_init', 'wpe_hook_plugin_api_response' );
