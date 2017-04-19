@@ -2,7 +2,7 @@
 /**
  * Plugin Name:     Better Plugin Recommendations
  * Plugin URI:      https://secretpizza.party
- * Description:     Better Plugin Recommendations
+ * Description:     Handpicked by humans. These plugins were selected by people who not only use WordPress but also the plugins they are recommending.
  * Author:          jkudish, secretpizzaparty
  * Author URI:      https://secretpizza.party
  * Text Domain:     spp-bpr
