@@ -4,7 +4,6 @@
  * Plugin URI:      https://secretpizza.party
  * Description:     Handpicked by humans. These plugins were selected by people who not only use WordPress but also the plugins they are recommending.
  * Author:          jkudish, secretpizzaparty
- * Author URI:      https://secretpizza.party
  * Text Domain:     spp-bpr
  * Domain Path:     /languages
  * Version:         1.0.0
