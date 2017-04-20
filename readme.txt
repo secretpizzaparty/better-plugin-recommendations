@@ -28,6 +28,9 @@ Support Given
 
 This plugin uses a web service to serve up the plugin results. The service is located at https://better-plugin-recommendations.now.sh
 
+== Screenshots ==
+1. It looks and acts exactly like the default "Recommended" tab (just with better recommendations).
+
 == Changelog ==
 
 = 1.0 =
