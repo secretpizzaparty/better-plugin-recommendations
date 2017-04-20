@@ -26,6 +26,8 @@ Average Rating
 Last Updated
 Support Given
 
+This plugin uses a web service to serve up the plugin results. The service is located at https://better-plugin-recommendations.now.sh
+
 == Changelog ==
 
 = 1.0 =
