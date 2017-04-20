@@ -1,5 +1,5 @@
 === Better Plugin Recommendations ===
-Contributors: jkudish secretpizzaparty
+Contributors: jkudish, secretpizzaparty
 Donate link: https://secretpizza.party/
 Tags: plugins
 Requires at least: 3.7
