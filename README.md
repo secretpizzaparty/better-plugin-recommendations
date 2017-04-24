@@ -26,6 +26,8 @@ Saying that these are the "best" WordPress plugins isn't really helpful. Best is
 * Last Updated
 * Support Given
 
+If you are looking to create your own recommedations server to use with better plugin recommendations please see this[repo](https://github.com/secretpizzaparty/better-plugin-recommendations-server).
+
 ## Changelog ##
 
 ### 1.0 ###
